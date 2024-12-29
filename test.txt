@@ -1,0 +1,4 @@
+hello from file 1
+hello from file 2 goodbye
+goodbye from file 3
+from goodbyefile 3
