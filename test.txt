@@ -1,4 +1,5 @@
-hello from file 1
-hello from file 2 goodbye
-goodbye from file 3
-from goodbyefile 3
+hello in line 1
+hello in line 2 goodbye
+goodbye from line 3
+from goodbye line 4
+sgoodbye in line 5
