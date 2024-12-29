@@ -22,6 +22,9 @@ pub fn main() !void {
     };
     defer file.close();
 
+    const red = "\x1b[31m";
+    const reset = "\x1b[0m";
+
     var buffer: [4096]u8 = undefined;
     while (file.reader().readUntilDelimiterOrEof(&buffer, '\n') catch |err| {
         std.log.err("Failed to read from file: {s}", .{@errorName(err)});
@@ -29,7 +32,9 @@ pub fn main() !void {
     }) |line| {
         const found = std.mem.indexOf(u8, line, to_match);
         if (found != null) {
-            std.debug.print("{s}\n", .{line});
+            const start = found.?;
+            const end = start + to_match.len;
+            std.debug.print("{s}{s}{s}{s}{s}\n", .{ line[0..start], red, line[start..end], reset, line[end..] });
         }
     }
 }
